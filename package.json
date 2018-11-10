@@ -1,0 +1,14 @@
+{
+    "name": "SuperTodolist",
+    "version": "0.1.0",
+    "dependencies": {
+        "body-parser": "latest",
+        "cookie-session": "latest",
+        "ejs": "latest",
+        "express": "latest",
+        "socket.io": "latest",
+        "http": "latest"
+    },
+    "author": "brice_bdht <brice.boudehent@gmail.com>",
+    "description": "Un gestionnaire de todo list"
+}

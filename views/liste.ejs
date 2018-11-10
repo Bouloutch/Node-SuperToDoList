@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Super To Do List</title>
+    <link rel="stylesheet" href="/style.css" />
+</head>
+
+<body>
+    <h1>Ma To Do List</h1>
+
+    <ul>
+        <% 
+    for (var i = 0; i<taches.length; i++) { %>
+        <li><a href="/liste/supprimer/<%= i %>">💥</a>
+            <%= taches[i] %>
+        </li>
+        <% } %>
+
+    </ul>
+    <form action="/liste/ajouter/" method="post" id="addForm">
+        Que dois-je faire ? <input type="text" name="todo" id="textInput" autofocus>
+        <button type="submit" id="validate">Valider</button>
+    </form>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        var socket = io.connect("http://localhost:8080");
+        var addForm = document.getElementById('addForm');
+        // var textToAdd = document.getElementById('textInput').value;
+        addForm.addEventListener('submit', function() {
+            var textToAdd = document.getElementById('textInput').value;
+            socket.emit('newElementToAdd', textToAdd);
+            console.log('hello'+textToAdd);
+        });
+    </script>
+</body>
+
+</html>
